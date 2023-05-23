@@ -1,0 +1,129 @@
+<header class="header">
+  <div class="header__logo">
+    <h1>Angular blog</h1>
+  </div>
+  <div *ngIf="headerBtn" class="header__btn">
+    <button (click)="signIn()" class="header__btn__signIn">Sign in</button>
+    <button (click)="singUp()" class="header__btn__signUp">Sign up</button>
+  </div>
+  <div *ngIf="!headerBtn" class="header__btn">
+    <button (click)="addPost()" class="header__btn__post">Add post</button>
+    <div class="header__btn__user">{{userName}}</div>
+    <button (click)="singOut()" class="header__btn__signOut">Sign out</button>
+  </div>
+</header>
+
+<main class="main">
+  <section class="blog" *ngFor="let post of postArray;">
+      <div class="blog__post">
+          <h2 class="blog__post__name">{{post.name}}</h2>
+          <span class="blog__post__author">Posted by: </span>
+          <span class="blog__post__author"> {{post.author}}</span>
+          <p class="blog__post__content">{{post.content}}</p>
+      </div>
+      <div class="blog__actions">
+          <p class="blog__actions__time"><span><i class="uil uil-clock-five"></i></span>
+              <span>{{ post.time | date:' HH:mm, dd.MM.YYYY ' }}</span></p>
+          <div class="blog__actions__btn" *ngIf="userName === post.author||
+              userName === 'admin'">
+              <button (click)="editPost(post)"
+                  class="blog__actions__btn__edit">edit</button>
+              <button (click)="deletePost(post)"
+                  class="blog__actions__btn__delete">delete</button>
+          </div>
+      </div>
+  </section>
+</main>
+
+<section class="modal" *ngIf="showSignUp"><!--start block browser popup sing Up -->
+  <div class="modal__singUp">
+      <div class="modal__singUp__header">
+          <h1>Sing up</h1>
+          <div class="modal__singUp__header_close" (click)="close()">X</div>
+      </div>
+      <div class="modal__singUp__form">
+          <p class="modal__singUp__form__name">Username:</p>
+          <input [(ngModel)]="author.name"
+              [style.border-color]="border? 'rgb(187, 184, 184)' : 'red' "
+              class="modal__singUp__form__input"
+              placeholder="Write here.."
+              type="text">
+          <p class="modal__singUp__form__name">Email:</p>
+          <input [(ngModel)]="author.email"
+              [style.border-color]="border? 'rgb(187, 184, 184)' : 'red' "
+              class="modal__singUp__form__input"
+              placeholder="Write here.."
+              type="email">
+          <p class="modal__singUp__form__name">Password:</p>
+          <input [(ngModel)]="author.pass"
+              [style.border-color]="border? 'rgb(187, 184, 184)' : 'red' "
+              class="modal__singUp__form__input"
+              placeholder="Write here.."
+              type="password">
+      </div>
+      <div class="modal__singUp__btn">
+          <button class="modal__singUp__btn__close"
+              (click)="close()">Close</button>
+          <button class="modal__singUp__btn__sub"
+              (click)="submitUp()">Submit</button>
+      </div>
+  </div>
+</section><!--end block browser popup sing Up -->
+
+<section class="modal"*ngIf="showAddPost"><!--start block browser popup Add Post -->
+  <div class="modal__AddPost">
+      <div class="modal__AddPost__header">
+          <h1>Add post</h1>
+          <div class="modal__AddPost__header_close" (click)="close()">X</div>
+      </div>
+      <div class="modal__AddPost__form">
+          <p class="modal__AddPost__form__name">Title:</p>
+          <input [(ngModel)]="post.title"
+              [style.border-color]="border? 'rgb(187, 184, 184)' : 'red' "
+              class="modal__AddPost__form__input"
+              placeholder="Write here.." type="text">
+          <p class="modal__AddPost__form__name">Text:</p>
+          <textarea [(ngModel)]="post.text"
+              [style.border-color]="border? 'rgb(187, 184, 184)' : 'red' "
+              placeholder="Write here.."
+              class="modal__AddPost__form__textarea"></textarea>
+      </div>
+      <div class="modal__AddPost__btn">
+          <button class="modal__AddPost__btn__close"
+              (click)="close()">Close</button>
+          <button class="modal__AddPost__btn__sub" *ngIf="addEdit"
+              (click)="addEditPost()">Edit Post</button>
+          <button class="modal__AddPost__btn__sub" *ngIf="!addEdit"
+              (click)="uppdatePost()">Edit Post</button>
+      </div>
+  </div>
+</section><!--end block browser popup Add Post -->
+
+  <section class="modal"*ngIf="showSignIn"><!--start block browser popup sing In -->
+  <div class="modal__singIn">
+      <div class="modal__singIn__header">
+          <h1>Sing In</h1>
+          <div class="modal__singIn__header_close" (click)="close()">X</div>
+      </div>
+      <div class="modal__singIn__form">
+          <p class="modal__singIn__form__name">Email:</p>
+          <input [(ngModel)]="email"
+              [style.border-color]="border? 'rgb(187, 184, 184)' : 'red' "
+              class="modal__singIn__form__input"
+              placeholder="Write here.."
+              type="email">
+          <p class="modal__singIn__form__name">Password:</p>
+          <input [(ngModel)]="pass"
+              [style.border-color]="border? 'rgb(187, 184, 184)' : 'red' "
+              class="modal__singIn__form__input"
+              placeholder="Write here.."
+              type="password">
+      </div>
+      <div class="modal__singIn__btn">
+          <button class="modal__singIn__btn__close"
+              (click)="close()">Close</button>
+          <button class="modal__singIn__btn__sub"
+              (click)="submitIn()">Submit</button>
+      </div>
+  </div>
+</section><!--end block browser popup sing In -->

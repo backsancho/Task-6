@@ -1,0 +1,295 @@
+
+.header {
+  width: 100%;
+  height: 70px;
+  background-color: black;
+  display: inline-flex;
+  justify-content: space-between;
+  &__logo {
+    width: 380px;
+    height: 70px;
+    font-size: 15px;
+    font-weight: 100;
+    padding: 20px;
+    color: white;
+  }
+  &__btn {
+    width: 400px;
+    height: 70px;
+    padding: 15px;
+    display: flex;
+    justify-content: end;
+    &__signIn {
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
+      padding: 15px 20px;
+      border-radius: 5px 0 0 5px;
+      color: white; 
+      background-color: green;
+      border: 2px solid green;
+      &:hover {
+        color: black; 
+        background-color: green;
+        border: 2px solid green;
+      }
+    }
+    &__signUp {
+      cursor: pointer;
+      border: 3px solid black;
+      font-size: 15px;
+      font-weight: bold;
+      padding: 15px 20px;
+      border-radius: 0 5px 5px 0;
+      color: blue; 
+      background-color: black;
+      border: 2px solid blue;
+      &:hover {
+        color: black; 
+        background-color: blue;
+        border: 2px solid blue;
+      }
+    }
+    &__post {
+      cursor: pointer;
+      border: 3px solid black;
+      font-size: 15px;
+      font-weight: bold;
+      padding: 15px 20px;
+      border-radius: 5px 0 0 5px;
+      color: green; 
+      background-color: black;
+      border: 2px solid green;
+      &:hover {
+        color: black; 
+        background-color: green;
+        border: 2px solid green;
+      }
+    }
+    &__signOut {
+      cursor: pointer;
+      border: 3px solid black;
+      font-size: 15px;
+      font-weight: bold;
+      padding: 15px 20px;
+      border-radius: 0 5px 5px 0;
+      color: orange; 
+      background-color: black;
+      border: 2px solid orange;
+      &:hover {
+        color: black; 
+        background-color: orange;
+        border: 2px solid orange;
+      }
+    }
+    &__user {
+      width: 80px;
+      height: 40px;
+      text-align: center;
+      line-height: 50px;
+      background-color: orange;
+      font-size: 15px;
+      font-weight: 600;
+    }
+  }
+}
+.main {
+  width: 1300px;
+  height: 500px;
+  margin: 50px auto;
+}
+.blog {
+  width: 100%;
+  height: 200px;
+  color: black; 
+  border: 2px solid grey;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 30px;
+  border-radius: 5px;
+  &__post {
+    width: 80%;
+    height: 200px;
+    line-height: 40px;
+    &__name {
+      font-size: 25px;
+    }
+    &__author {
+      font-size: 20px;
+      font-weight: 600;
+      color: darkgrey;
+    }
+    &__content {
+      font-size: 18px;
+      color: black;
+    }
+  }
+  &__actions {
+    width: 20%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    font-size: 17px;
+    &__time {
+      color: darkgrey;
+    }
+    &__btn__edit {
+      cursor: pointer;
+      border: 3px solid black;
+      font-size: 15px;
+      font-weight: bold;
+      padding: 15px 20px;
+      border-radius: 5px 0 0 5px;
+      color: black; 
+      background-color: orange;
+      border: 2px solid orange;
+      padding: 10px 15px;
+    }
+    &__btn__delete {
+      cursor: pointer;
+      border: 3px solid black;
+      font-size: 15px;
+      font-weight: bold;
+      padding: 15px 20px;
+      border-radius: 0 5px 5px 0;
+      color: white; 
+      background-color: red;
+      border: 2px solid red;
+      padding: 10px 15px;
+    }
+  }
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  &__singUp,
+  &__AddPost,
+  &__singIn {
+    margin: 50px auto;
+    width: 600px;
+    height: 500px;
+    color: black; 
+    background-color: white;
+    border: 2px solid darkgrey;
+    border-radius: 5px;
+    box-shadow: 1px 1px 8px 1px grey;
+    &__header {
+      width: 100%;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 25px;
+      border-bottom: 2px solid grey;
+      &_close {
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        font-weight: bolder;
+        text-align: center;
+        line-height: 30px;
+      }
+    }
+    &__form {
+      width: 90%;
+      height: 270px;
+      margin: 20px auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      &__name {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      &__input {
+        width: 100%;
+        height: 40px;
+        border-radius: 5px;
+        border: 1px solid grey;
+        outline: none;
+        padding: 10px 20px;
+        font-size: 15px;
+      }
+    }
+    &__btn {
+      width: 100%;
+      height: 110px;
+      border-top: 2px solid black;
+      margin-top: 10px;
+      display: flex;
+      justify-content: end;
+      padding: 5%;
+      &__close {
+        cursor: pointer;
+        border: 3px solid;
+        font-size: 15px;
+        font-weight: bold;
+        padding: 10px 15px;
+        border-radius: 5px;
+        margin: 3px;
+        color: black; 
+        background-color: darkgrey;
+        border: 2px solid darkgrey;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      &__sub {
+        cursor: pointer;
+        border: 3px solid;
+        font-size: 15px;
+        font-weight: bold;
+        padding: 10px 15px;
+        border-radius: 5px;
+        margin: 3px;
+        color: white; 
+        background-color: blue;
+        border: 2px solid blue;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  &__signIn {
+    min-height: 400px;
+
+    &__form {
+      min-height: 200px;
+    }
+  }
+  &__AddPost__form__textarea {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    outline: none;
+    padding: 10px 20px;
+    font-size: 15px;
+    height: 100px;
+  }
+  &__signIn__btn__sub,
+  &__AddPost__btn__sub {
+    color: white; 
+    background-color: green;
+    border: 2px solid green;
+  }
+}
+
+@keyframes show {
+  from {
+    margin: -100px auto;
+    width: 500px;
+    border-radius: 25px;
+  }
+  to {
+    margin: 50px auto;
+  }
+}
